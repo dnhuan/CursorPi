@@ -67,20 +67,20 @@ function App() {
 
   return (
     <div
-      className="absolute w-screen h-screen"
+      className="absolute w-screen h-screen select-none"
       onMouseMove={MouseMoveHandler}
       onTouchMove={MouseMoveHandler}
       onClick={handleClick}
     >
       <div
         className={
-          "relative flex min-h-screen items-center justify-center" +
-          (active ? " z-0" : " z-20")
+          "relative flex flex-col min-h-screen items-center justify-center" +
+          (active ? " z-0" : " z-40")
         }
       >
         <div
           className={
-            "text-5xl p-4 rounded-lg cursor-pointer text-black" +
+            "text-5xl p-4 rounded-lg cursor-pointer text-center text-black z-30" +
             (active
               ? " bg-gray-100 opacity-20 text-opacity-20"
               : " shadow-2xl bg-white opacity-100 text-opacity-100")
@@ -89,9 +89,43 @@ function App() {
             transitionTimingFunction: "ease-in-out",
             transitionDuration: "1s",
             transitionProperty: "all",
+            // transform: active ? "translateY(100%)" : "translateY(0)",
           }}
         >
-          Cursor Pi
+          <h1>Cursor Pi</h1>
+        </div>
+        <div
+          className={
+            "p-2 m-10 text-base rounded-lg bg-white z-20 active:shadow-inner" +
+            (active ? " opacity-0" : " opacity-100")
+          }
+          style={{
+            transitionTimingFunction: "ease-out",
+            transitionDuration: "1s",
+            transitionProperty: "all",
+            transform: active ? "translateY(-200%)" : "translateY(0)",
+          }}
+        >
+          by{" "}
+          <a
+            href="https://github.com/dnhuan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <i class="fab fa-github"></i> dnhuan
+          </a>{" "}
+          |{" "}
+          <a
+            href="https://linkedin.com/in/huand"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <i className="fab fa-linkedin"></i> huand
+          </a>
         </div>
       </div>
       <div className="absolute inset-0 z-10 pointer-events-none">
