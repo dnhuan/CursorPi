@@ -80,30 +80,30 @@ function App() {
       >
         <div
           className={
-            "text-5xl p-4 rounded-lg cursor-pointer text-center text-black z-30" +
+            "text-5xl p-4 rounded-lg cursor-pointer text-center text-black bg-white z-30" +
             (active
-              ? " bg-gray-100 opacity-20 text-opacity-20"
-              : " shadow-2xl bg-white opacity-100 text-opacity-100")
+              ? "  shadow-sm text-opacity-20"
+              : " shadow-2xl text-opacity-100")
           }
           style={{
             transitionTimingFunction: "ease-in-out",
             transitionDuration: "1s",
             transitionProperty: "all",
-            // transform: active ? "translateY(100%)" : "translateY(0)",
+            transform: active ? "translateY(50%)" : "translateY(-50%)",
           }}
         >
           <h1>Cursor Pi</h1>
         </div>
         <div
           className={
-            "p-2 m-10 text-base rounded-lg bg-white z-20 active:shadow-inner" +
+            "p-2 m-2 text-base rounded-lg bg-white z-20 active:shadow-inner" +
             (active ? " opacity-0" : " opacity-100")
           }
           style={{
             transitionTimingFunction: "ease-out",
             transitionDuration: "1s",
             transitionProperty: "all",
-            transform: active ? "translateY(-200%)" : "translateY(0)",
+            transform: active ? "translateY(-100%)" : "translateY(-50%)",
           }}
         >
           by{" "}
