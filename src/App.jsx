@@ -8,10 +8,20 @@ function App() {
   let _y = 0;
   let piIndex = 0;
   const [active, setActive] = useState(false);
+  let isTouch = false;
 
   function MouseMoveHandler(e) {
-    const x = e.clientX;
-    const y = e.clientY;
+    console.log(e);
+    if (isTouch && !e.touches) return;
+
+    let x = e.clientX;
+    let y = e.clientY;
+    if (e.touches) {
+      isTouch = true;
+      x = e.touches[0].clientX;
+      y = e.touches[0].clientY;
+    }
+
     console.log(x, y, active);
     if (!active) return;
 
@@ -59,6 +69,7 @@ function App() {
     <div
       className="absolute w-screen h-screen"
       onMouseMove={MouseMoveHandler}
+      onTouchMove={MouseMoveHandler}
       onClick={handleClick}
     >
       <div
